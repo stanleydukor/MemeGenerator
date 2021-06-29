@@ -1,3 +1,5 @@
+"""This parses txt files and create quote objects."""
+
 from typing import List
 
 from .IngestorInterface import IngestorInterface
@@ -5,12 +7,13 @@ from .QuoteModel import QuoteModel
 
 
 class TextIngestor(IngestorInterface):
-    """Class to parse txt files and create quote objects"""
+    """Class to parse txt files and create quote objects."""
+
     allowed_extensions = ['txt']
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
-        """Parse the file at the given path and return QuoteModel objects"""
+        """Parse the file at the given path and return QuoteModel objects."""
         if not cls.can_ingest(path):
             raise Exception("Cannot ingest exception")
 

@@ -1,6 +1,10 @@
+"""This creates a new quote objects."""
+
 class QuoteModel():
+    """Create new quote."""
+
     def __init__(self, body, author):
-        """Create new quote"""
+        """Initialize quote."""
         self.body = body
         self.author = author
 

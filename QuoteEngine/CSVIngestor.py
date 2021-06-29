@@ -1,3 +1,5 @@
+"""This parses csv files and create quote objects."""
+
 import pandas as pd
 from typing import List
 
@@ -5,12 +7,13 @@ from .IngestorInterface import IngestorInterface
 from .QuoteModel import QuoteModel
 
 class CSVIngestor(IngestorInterface):
-    """Class to parse csv files and create quote objects"""
+    """Class to parse csv files and create quote objects."""
+
     allowed_extensions = ['csv']
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
-        """Parse the csv file at the path and return QuoteModel objects"""
+        """Parse the csv file at the path and return QuoteModel objects."""
         if not cls.can_ingest(path):
             raise Exception("Cannot ingest exception")
 

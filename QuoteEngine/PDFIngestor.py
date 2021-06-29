@@ -1,3 +1,5 @@
+"""This parses pdf files and create quote objects."""
+
 import subprocess
 import random
 import os
@@ -8,12 +10,13 @@ from .QuoteModel import QuoteModel
 
 
 class PDFIngestor(IngestorInterface):
-    """Class to parse pdf files and create quote objects"""
+    """Class to parse pdf files and create quote objects."""
+
     allowed_extensions = ['pdf']
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
-        """Parse the file at the given path and return QuoteModel objects"""
+        """Parse the file at the given path and return QuoteModel objects."""
         quotes_list = []
         if not cls.can_ingest(path):
             raise Exception("Cannot ingest exception")

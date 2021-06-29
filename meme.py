@@ -1,3 +1,5 @@
+"""This is the app to be served via CLI."""
+
 import os
 import random
 import argparse

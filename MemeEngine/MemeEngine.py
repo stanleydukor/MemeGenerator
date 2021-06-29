@@ -1,7 +1,11 @@
+"""This accepts an image output path, selects a random image and quote, saves the image to the output path and returns the path to the image."""
+
 import random
 from PIL import Image, ImageDraw, ImageFont
 
 class MemeEngine:
+    """This class takes in an image output path, selects a random image and quote, saves the image to the output path and returns the path to the image."""
+    
     def __init__(self, output_path):
         """Create instance of class."""
         self.output_path = output_path

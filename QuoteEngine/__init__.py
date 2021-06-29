@@ -1,3 +1,5 @@
+"""This imports all neccessary submodules."""
+
 from .IngestorInterface import IngestorInterface
 from .QuoteModel import QuoteModel
 
