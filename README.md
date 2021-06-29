@@ -11,17 +11,16 @@ Meme Generator which is the second project of the Intermediate Python Nanodegree
 
 ## Packages
 
-- Flask
-- Pandas
-- Python-docx
-- Pillow
-- Requests
-- Subprocess
-- PIL
-- ABC
-- Typing
-- os
-- Argparse
+- [Flask](https://github.com/pallets/flask/)
+- [Pandas](https://github.com/pandas-dev/pandas)
+- [Python-docx](https://github.com/python-openxml/python-docx)
+- [Pillow](https://github.com/python-pillow/Pillow)
+- [Requests](https://github.com/psf/requests)
+- [Subprocess](https://github.com/python/cpython/blob/main/Lib/subprocess.py)
+- [ABC](https://github.com/python/cpython/blob/main/Lib/abc.py)
+- [Typing](https://github.com/python/typing)
+- [os](https://github.com/python/cpython/blob/main/Lib/os.py)
+- [Argparse](https://github.com/python/cpython/blob/main/Lib/argparse.py)
 
 ## Usage
 
