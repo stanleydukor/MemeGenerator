@@ -42,6 +42,7 @@ quotes, imgs = setup()
 @app.route('/')
 def meme_rand():
     """Generate a random meme."""
+    print(quotes)
     img = random.choice(imgs)
     quotes_list = random.choice(quotes)
     quote = random.choice(quotes_list)
