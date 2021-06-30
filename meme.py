@@ -18,9 +18,9 @@ def generate_meme(path=None, body=None, author=None):
         for root, dirs, files in os.walk(images):
             imgs = [os.path.join(root, name) for name in files]
 
-        img = random.choice(imgs)
+        img_path = random.choice(imgs)
     else:
-        img = path[0]
+        img_path = path
 
     if body is None:
         quote_files = ['./_data/DogQuotes/DogQuotesTXT.txt',
@@ -38,7 +38,7 @@ def generate_meme(path=None, body=None, author=None):
         quote = QuoteModel(body, author)
 
     meme = MemeEngine('./static')
-    path = meme.make_meme(img, quote.body, quote.author)
+    path = meme.make_meme(img_path, quote.body, quote.author)
     return path
 
 
