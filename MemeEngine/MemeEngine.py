@@ -19,26 +19,26 @@ class MemeEngine:
 
     def make_meme(self, path, text, author, width=500) -> str:
         """Create meme with provided text and author."""
-        global img, img_font, height, img_draw
-
         try:
             img = Image.open(path)
         except Exception as ex:
             print(f'Exception: {ex}')
-        
-        if width is not None:
-            ratio = width/float(img.size[0])
-            height = int(ratio*float(img.size[1]))
-            img = img.resize((width, height), Image.NEAREST)
+        else:
+            if width is not None:
+                ratio = width/float(img.size[0])
+                height = int(ratio*float(img.size[1]))
+                img = img.resize((width, height), Image.NEAREST)
 
-        if text and author:
-            message = f'{text}\n- {author}'
-            draw = ImageDraw.Draw(img)
-            font = ImageFont.truetype('./font/LilitaOne-Regular.ttf', int(height/20))
-            axis = (10, self.get_rand_y(img.size[1]))
-            draw.text(axis, message, font=font, fill='white')
+            if text and author:
+                message = f'{text}\n- {author}'
+                draw = ImageDraw.Draw(img)
+                font = ImageFont.truetype('./font/LilitaOne-Regular.ttf', int(height/20))
+                # font = ImageFont.load_default()
+                axis = (10, self.get_rand_y(img.size[1]))
+                draw.text(axis, message, font=font, fill='white')
 
-        out_path = f'{self.output_path}/{random.randint(0, 1000000)}.jpeg'
-        img.save(out_path)
-        print(f"Meme saved to {self.output_path}")
-        return out_path
+            out_path = f'{self.output_path}/{random.randint(0, 1000000)}.jpeg'
+
+            img.save(out_path)
+            print(f"Meme saved to {self.output_path}")
+            return out_path

@@ -42,7 +42,6 @@ quotes, imgs = setup()
 @app.route('/')
 def meme_rand():
     """Generate a random meme."""
-    print(quotes)
     img = random.choice(imgs)
     quotes_list = random.choice(quotes)
     quote = random.choice(quotes_list)
@@ -67,15 +66,19 @@ def meme_post():
     image_url = request.form['image_url']
     body = request.form['body']
     author = request.form['author']
-    img = requests.get(image_url, True)
-
-    img_file = f'tmp/{random.randint(0, 100000000)}.jpg'
-    open(img_file, 'wb').write(img.content)
-
-    path = meme.make_meme(img_file, body, author)
-    os.remove(img_file)
-
-    return render_template('meme.html', path=path)
+    img = requests.get(image_url, stream=True)
+    path = None
+    try:
+        img_file = f'tmp/{random.randint(0, 100000000)}.jpg'
+        open(img_file, 'wb').write(img.content)
+    except:
+        print("Could not load image")
+        path = meme.make_meme('./_data/photos/dog/xander_1.jpg', "This is a default quote", "Stanley Dukor")
+    else:
+        path = meme.make_meme(img_file, body, author)
+        os.remove(img_file)
+    finally:
+        return render_template('meme.html', path=path)
 
 
 if __name__ == "__main__":
