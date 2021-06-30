@@ -28,5 +28,6 @@ venv.bak/
 dmypy.json
 
 # folder
-static/*
-tmp/*
+static/*.jpeg
+tmp/*.txt
+tmp/*.jpg
